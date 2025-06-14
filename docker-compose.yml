@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  transaction:
+    container_name: transaction
+    image: transaction
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - .:/src
+      - /src/node_modules
+    env_file:
+      - ./.env
+
+    ports:
+      - '80:80'
